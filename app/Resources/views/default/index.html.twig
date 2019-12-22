@@ -3,6 +3,14 @@
 {% block body %}
 {{a}}
     Hello word
+{% if not some_value %}
+    {{'YES'}}
+{% endif %}
+
+{% for key, some_item in some_array %}
+    {{'<br>'}}{{some_item}}{{'-'}}{{key}}
+{% endfor %}
+
 {% endblock %}
 
 {% block stylesheets %}
