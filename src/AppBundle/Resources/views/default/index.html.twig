@@ -2,23 +2,10 @@
 
 {% block body %}
 <div class="starter-template">
-        <h1>Bootstrap starter template
-            {% if a is defined%}
-
-                    dfd
-            {% endif %}
+        <h1>Bootstrap starter template</h1>
         <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-      </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</div>
 
-    <script>
-        $.ajax({
-            type: "GET",
-            url: "{{ path('ajax') }}",
-            data: {a: 'status'}
-
-        });
-    </script>
 {% endblock %}
 
 {% block stylesheets %}
