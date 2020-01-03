@@ -4,6 +4,7 @@
 namespace AppBundle\Controller;
 
 
+use AppBundle\Entity\Category;
 use AppBundle\Entity\Product;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -74,5 +75,19 @@ class ProductController extends Controller
         $entityManager->flush();
 
         return new Response('Delete product with id '. $id);
+    }
+
+    /**
+     * @Route("/category/{id}", name="product_by_category", requirements={"id":"[0-9]+"})
+     * @param Category $category
+     * @return array
+     * @Template()
+     */
+    public function listByCategoryAction(Category $category){
+        $products = $this
+            ->getDoctrine()
+            ->getRepository('AppBundle:Product')
+            ->findByCategory($category);
+        return ['products' => $products];
     }
 }
